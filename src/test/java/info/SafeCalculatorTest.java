@@ -25,5 +25,4 @@ public class SafeCalculatorTest {
         SafeCalculator calculator = new SafeCalculator(unauthorizedAuthorizer);
         assertDoesNotThrow(() -> calculator.add(2,3));
     }
-    */
 }
