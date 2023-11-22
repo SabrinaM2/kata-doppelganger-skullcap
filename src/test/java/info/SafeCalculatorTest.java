@@ -3,7 +3,7 @@ package info;
 import info.doubles.FakeAuthorizer;
 
 import org.junit.jupiter.api.Test;
-//import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,9 +15,11 @@ public class SafeCalculatorTest {
         assertDoesNotThrow(() -> calculator.add(2,3));
     }
 
-    /*
     @Test //With Library
     void should_not_throw_when_authorized_without_library_with_Mockito() {
+
+        SafeCalculator calculator = new SafeCalculator(new FakeAuthorizer());
+        when(calculator.add(2,3)).thenReturn(true);
 
         Authorizer unauthorizedAuthorizer = mock(Authorizer.class);
         when(unauthorizedAuthorizer.authorize()).thenReturn(false);
